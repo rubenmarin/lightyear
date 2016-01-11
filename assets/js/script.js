@@ -1,7 +1,3 @@
-/*
-	lightyear = will require jquery
-*/
-
 $(function() {
 	
 	function buildItems(){

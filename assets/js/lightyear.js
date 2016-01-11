@@ -70,8 +70,8 @@ var Lightyear = ( function( $ , window , document ,undefined) {
 
 this.addScrollCB = function addScrollCB(){
 		
-			if(document.attachEvent){
-				document.attachEvent( 'scroll' , this.listen );
+			if(window.attachEvent){
+				window.attachEvent( 'onscroll' , this.listen );
 			}
 			else{
 				document.addEventListener( 'scroll' , this.listen );
@@ -80,8 +80,8 @@ this.addScrollCB = function addScrollCB(){
 		}
 		this.removeScrollCB = function removeScrollCB(){
 			
-			if( document.detachEvent){
-				document.detachEvent( 'scroll' , this.listen );
+			if( window.detachEvent){
+				window.detachEvent( 'onscroll' , this.listen );
 			}
 			else{
 				document.removeEventListener( 'scroll' , this.listen );
@@ -123,11 +123,11 @@ this.addScrollCB = function addScrollCB(){
 			/*
 				el : jquery object
 			*/
-			var scrollTops     = window.scrollY,
+			var scrollTops     = window.scrollY||window.pageYOffset||document.documentElement.scrollTop,
 		    	padding 	   = p||0,
 		    	elementOffset  = el.offset().top + padding,
 		    	distance       = ( elementOffset - scrollTops );
-
+		   			   	
 		   	return ( distance <= $(window).height() ); 	
 		}
 
